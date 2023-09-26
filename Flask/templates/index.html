@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Records</title>
+</head>
+<body>
+    <h1>Student Records</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in data %}
+            <tr>
+                <td>{{ record[0] }}</td>
+                <td>{{ record[1] }}</td>
+                <td>{{ record[2] }}</td>
+                <td>
+                    <a href="{{ url_for('update', id=record[0]) }}">Update</a>
+                    <a href="{{ url_for('delete', id=record[0]) }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <h2>Add Student</h2>
+    <form method="POST" action="/add">
+        <label for="name">Name:</label>
+        <input type="text" name="name" required><br>
+        <label for="email">Email:</label>
+        <input type="email" name="email" required><br>
+        <input type="submit" value="Add">
+    </form>
+</body>
+</html>
