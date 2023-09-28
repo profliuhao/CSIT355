@@ -1,0 +1,5 @@
+Flask
+sqlparse
+mysql-connector-python
+mysqlclient
+flask_mysqldb
