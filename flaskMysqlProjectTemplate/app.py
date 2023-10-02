@@ -1,15 +1,15 @@
 import sqlparse
 from flask import Flask, render_template, request, redirect, url_for
 from flask_mysqldb import MySQL
+from MySQLConfig import MySQLConfig
 
 app = Flask(__name__)
 
-# MySQL Configuration (Replace with your database details)
-app.config['MYSQL_HOST'] = 'your_mysql_host'
-app.config['MYSQL_USER'] = 'your_mysql_username'
-app.config['MYSQL_PASSWORD'] = 'your_mysql_password'
-app.config['MYSQL_DB'] = 'your_database_name'
-
+# Configure MySQL using the imported config
+app.config['MYSQL_HOST'] = MySQLConfig.HOST
+app.config['MYSQL_USER'] = MySQLConfig.USER
+app.config['MYSQL_PASSWORD'] = MySQLConfig.PASSWORD
+app.config['MYSQL_DB'] = MySQLConfig.DATABASE
 
 # Create a MySQL connection
 mysql = MySQL(app)
