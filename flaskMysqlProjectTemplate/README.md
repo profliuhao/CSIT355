@@ -26,6 +26,7 @@ Navigate into the extracted project directory:
 cd path/to/CSIT355-main/flaskMysqlProjectTemplate
 ```
 (Note: Replace path/to/ with the actual path to the extracted directory.)
+![img.png](./docs/open_terminal_cd.png)
 
 ## Step 3: Create a Virtual Environment (Optional but Recommended)
 
@@ -51,6 +52,7 @@ Use pip to install the required packages:
 ```shell
 pip install -r requirements.txt
 ```
+![img.png](./docs/install_requirements.png)
 
 ## Step 5: Configure the Database
 
@@ -63,6 +65,7 @@ Start the Flask development server:
 python app.py
 ```
 or open app.py and click on the run button in Pycharm
+![img.png](./docs/run_project.png)
 
 Step 8: Access the Web Application
 
