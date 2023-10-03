@@ -97,7 +97,14 @@ echo "export PATH=/opt/homebrew/bin:$PATH"
 ### Then, Install mysql-client
 ```shell
 brew install mysql-client pkg-config
+echo 'export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"' >> ~/.profile
+export LDFLAGS="-L/opt/homebrew/opt/mysql-client/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/mysql-client/include"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/mysql-client/lib/pkgconfig"
-pip install mysqlclient
+```
+
+### Then, go back to 
+```shell
+pip install -r requirements.txt
 ```
 
