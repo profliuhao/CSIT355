@@ -50,6 +50,7 @@ source venv/bin/activate
 
 Use pip to install the required packages:
 ```shell
+pip install --upgrade pip
 pip install -r requirements.txt
 ```
 ![img.png](./docs/install_requirements.png)
@@ -86,6 +87,11 @@ Reference [Home Brew](https://brew.sh/).
 Open your terminal and type in the following commands.
 ``` shell
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+### Then, export Brew to Path
+```shell
+echo "export PATH=/opt/homebrew/bin:$PATH" >> ~/.bash_profile && source ~/.bash_profile
 ```
 
 ### Then, Install mysql-client
