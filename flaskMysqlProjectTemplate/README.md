@@ -91,7 +91,7 @@ Open your terminal and type in the following commands.
 
 ### Then, export Brew to Path
 ```shell
-echo "export PATH=/opt/homebrew/bin:$PATH" >> ~/.bash_profile && source ~/.bash_profile
+echo "export PATH=/opt/homebrew/bin:$PATH" 
 ```
 
 ### Then, Install mysql-client
