@@ -32,7 +32,7 @@ cd path/to/CSIT355-main/flaskMysqlProjectTemplate
 
 It's a good practice to create a virtual environment to isolate dependencies for your project. Run:
 ```shell
-python -m venv venv
+python3 -m venv venv
 ```
 
 > Activate the virtual environment:
@@ -68,14 +68,16 @@ python app.py
 or open app.py and click on the run button in Pycharm
 ![img.png](./docs/run_project.png)
 
-Step 8: Access the Web Application
+## Step 8: Access the Web Application
 
 Open a web browser and navigate to http://localhost:5000.
 If website not available, also try http://localhost:9999 (as the port number set in app.py).
 
-Step 9: Interact with the Application
+## Step 9: Interact with the Application
 
 You can now interact with the Flask application. Explore its features and functionalities.
+
+## Step 10: To stop or quit, press ctrl+c
 
 
 
@@ -108,3 +110,31 @@ export PKG_CONFIG_PATH="/opt/homebrew/opt/mysql-client/lib/pkgconfig"
 pip install -r requirements.txt
 ```
 
+----------------------
+
+# Run with Docker
+## Step 0
+Install Docker (https://docs.docker.com/get-docker/) and start Docker after installation
+>MacOS users if installed Homebrew, you can install Docker using
+```shell
+brew install --cask docker
+```
+> Then start Docker in your Applications.
+## Step 1-2: Same as above
+
+## Step 3: Build docker image
+
+```bash
+docker build -t myflaskapp .
+```
+This will create a Docker image called myflaskapp.
+
+## Step 4: Run the Docker container
+```bash
+docker run -p 9999:9999 myflaskapp
+```
+This will start the container and map port 9999 on the host to port 9999 in the container.
+
+Verify that the application is running properly by opening a web browser and navigating to http://localhost:9999.
+
+## Step 5: To stop, press ctrl+c
