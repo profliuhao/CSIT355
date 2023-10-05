@@ -63,7 +63,7 @@ Open the MySQLConfig.py file and provide your MySQL database configuration detai
 
 Start the Flask development server:
 ```shell
-python app.py
+python3 app.py
 ```
 or open app.py and click on the run button in Pycharm
 ![img.png](./docs/run_project.png)
