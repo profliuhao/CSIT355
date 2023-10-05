@@ -50,8 +50,8 @@ source venv/bin/activate
 
 Use pip to install the required packages:
 ```shell
-pip install --upgrade pip
-pip install -r requirements.txt
+pip3 install --upgrade pip
+pip3 install -r requirements.txt
 ```
 ![img.png](./docs/install_requirements.png)
 
