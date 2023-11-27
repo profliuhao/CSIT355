@@ -1,0 +1,28 @@
+version: "3"
+services:
+  app:
+    container_name: flask-app
+    build: .
+    links:
+      - db
+    depends_on:
+      - db
+    ports:
+      - "9999:9999"
+
+  db:
+    container_name: mysql-db
+    platform: linux/amd64
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: csit355_root
+      MYSQL_DATABASE: CSIT355
+      MYSQL_USER: haoliu
+      MYSQL_PASSWORD: csit355_root
+    volumes:
+      - "./static/sql/init.sql:/docker-entrypoint-initdb.d/1.sql"
+      - "./dbdata:/var/lib/mysql"
+    restart: unless-stopped

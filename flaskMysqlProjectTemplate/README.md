@@ -138,3 +138,60 @@ This will start the container and map port 9999 on the host to port 9999 in the 
 Verify that the application is running properly by opening a web browser and navigating to http://localhost:9999.
 
 ## Step 5: To stop, press ctrl+c
+
+
+------------------------------------
+# Run with Docker Compose
+We can use docker to set up our app and Mysql database using Docker compose with internet connection.
+Before you can actually run it you need to build them using
+```bash
+docker-compose build --no-cache
+```
+If you are running for the first time you don't need --no-cache. Now, let us run it
+
+```bash
+docker-compose up -d
+```
+That should run the containers successfully, here -d is used to "detach" which basically lets you exit the logs after successfully deploying the containers.
+
+We are not done yet! The MySQL server you started is quite fresh and doesn't have any tables yet. So we are going to access the bash terminal of MySQL containers, run mysql command and create our schema. To log in to bash terminal of the MySQL container use:
+```bash
+docker exec -it mysql-db bash
+
+```
+This command basically tells docker to log in to the interactable terminal (-it) of container mysql-db with bash
+
+Now that you are in the container's bash terminal, let's start the MySQL CLI using
+
+```bash
+mysql -h localhost -u root -p
+
+```
+Here my user is root by default and password we defined in docker-compose. Now, you should be able to access the databases. You can test it using
+
+```sql
+SHOW DATABASES;
+```
+
+```sql
+CREATE USER 'haoliu'@'' IDENTIFIED WITH mysql_native_password BY 'csit355_root';
+
+
+GRANT ALL ON *.* TO 'haoliu'@'' WITH GRANT OPTION;
+          
+FLUSH PRIVILEGES;
+          
+-- ALTER USER 'haoliu'@'' IDENTIFIED WITH mysql_native_password BY 'csit355_root2';
+```
+
+
+Now you can go ahead and finish building the schema that you want.
+
+at this point, you should be able to access your API successfully on http://localhost:9999. You can test it out. 
+
+
+Now to stop the containers you can use
+```bash
+docker-compose down
+```
+Read the official docs to see what else you can do with docker-compose. 

@@ -1,8 +1,9 @@
 # config.py
 
 # MySQL Configuration (Replace with your database details)
+# Change to the same config in docker-compose.yml if using docker compose
 class MySQLConfig:
-    HOST = 'your_mysql_host'
-    USER = 'your_mysql_user'
-    PASSWORD = 'your_mysql_password'
-    DATABASE = 'your_mysql_database'
+    HOST = 'db'   # ip address if remote server; service name (db) if using docker compose
+    USER = 'haoliu'
+    PASSWORD = 'csit355_root'
+    DATABASE = 'CSIT355'

@@ -29,7 +29,7 @@ def execute_initial_sql(mysql):
     except Exception as e:
         print(f"Error executing initial SQL script: {str(e)}")
 
-
+# you can comment out the following two lines if using docker compose
 with app.app_context():
     execute_initial_sql(mysql)
 
