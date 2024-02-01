@@ -1,4 +1,4 @@
-# Tutorial to create databases with Docker
+# Tutorial to Create & Connect to Databases with Docker
 
 ## Install Docker Desktop
 - [Install Docker on Windows](https://docs.docker.com/desktop/install/windows-install/#:~:text=Download%20the%20installer%20using%20the,Program%20Files%5CDocker%5CDocker%20.)
