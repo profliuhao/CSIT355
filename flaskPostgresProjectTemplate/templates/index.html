@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to CSIT 355 Database System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+</head>
+<body>
+    <img src="{{ url_for('static', filename='img/sql_logo.png') }}" alt="Logo">
+
+
+<h1>Student Records</h1>
+    <table border="1" class="student-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in data %}
+            <tr>
+                <td>{{ record[0] }}</td>
+                <td>{{ record[1] }}</td>
+                <td>{{ record[2] }}</td>
+                <td>{{ record[3] }}</td>
+                <td>
+                    <a href="{{ url_for('update', id=record[0]) }}">Update</a>
+                    <a href="{{ url_for('delete', id=record[0]) }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+<div class="form-container">
+    <h2>Add Student</h2>
+    <form method="POST" action="/add">
+        <label for="name">Name:</label>
+        <input type="text" name="name" required><br>
+        <label for="age">Age:</label>
+        <input type="text" name="age" required><br>
+        <label for="email">Email:</label>
+        <input type="email" name="email" required><br>
+        <button type="submit" value="Add">Add</button><br>
+    </form>
+</div>
+</body>
+</html>

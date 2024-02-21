@@ -1,0 +1,49 @@
+version: "3"
+services:
+  app:
+    container_name: flask-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    links:
+      - db
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - 9999:9999
+#    # connect this container to the user-defined network
+#    networks:
+#      - my-network
+
+  db:
+    container_name: postgres-db
+    image: postgres
+    platform: linux/amd64
+    ports:
+      - 5432:5432
+    expose:
+      - 5432
+    environment:
+      POSTGRES_DB: csit355
+      POSTGRES_USER: hao
+      POSTGRES_PASSWORD: csit355
+    volumes:
+      - "./pData:/var/lib/postgresql/data"
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB} -t 1" ]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+      start_period: 10s
+      # connect this container to the user-defined network my-network
+#    networks:
+#      - my-network
+
+
+# declare the network resource
+# this will allow you to use service discovery and address a container by its name from within the network
+#networks:
+#  my-network:
+#    name: my-network
